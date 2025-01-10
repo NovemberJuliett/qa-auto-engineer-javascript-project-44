@@ -9,31 +9,24 @@ function getRandomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-let random_number = getRandomNumber(min, max)
-console.log("Question: " + random_number)
+let counter = 0;
 
-console.log('Answer "yes" if the number is even, otherwise answer "no". ');
+while (counter < 3) {
+    let randomNumber = getRandomNumber(min, max);
+    console.log("Question: " + randomNumber);
+    console.log('Answer "yes" if the number is even, otherwise answer "no". ');
 
-let users_answer = readlineSync.question("Your answer: ");
-let positive_answer = "yes"
-let negative_answer = "no"
+    let usersAnswer = readlineSync.question("Your answer: ");
+    let correctAnswer = (randomNumber % 2 === 0) ? "yes" : "no";
 
-
-if (random_number % 2 === 0 && users_answer === positive_answer) {
-    console.log("Correct!")
-}
-if (random_number % 2 !== 0 && users_answer === negative_answer){
-    console.log("Correct!")
-}
-else if(random_number % 2 === 0 && users_answer === negative_answer){
-    (console.log("'" + negative_answer + "'", "is wrong answer ;(. Correct answer was",
-        "'" + positive_answer + "'"))
-    console.log("Let's try again,", userName + "!")
+    if (usersAnswer === correctAnswer) {
+        console.log("Correct!");
+        ++counter
+    } else {
+        console.log(`'${usersAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
+        console.log("Let's try again,", userName + "!")
+        break
+    }
 }
 
-if(random_number % 2 !== 0 && users_answer === positive_answer){
-    (console.log("'" + positive_answer + "'", "is wrong answer ;(. Correct answer was",
-        "'" + negative_answer + "'"))
-    console.log("Let's try again,", userName + "!")
-}
-
+console.log("Congratulations", userName + "!");
