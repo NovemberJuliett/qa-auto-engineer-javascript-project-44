@@ -1,32 +1,12 @@
 import readlineSync from 'readline-sync';
-import greetUser from "../src/cli.js";
+import { getRandomNumber, checkAnswer } from "../src/index.js";
 
-const min = 0;
-const max = 100;
-const userName = greetUser()
+console.log('Answer "yes" if the number is even, otherwise answer "no". ');
+console.log("Question: " + getRandomNumber());
 
-function getRandomNumber(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
 
-let counter = 0;
+let usersAnswer = readlineSync.question("Your answer: ");
+let correctAnswer = (getRandomNumber % 2 === 0) ? "yes" : "no";
 
-while (counter < 3) {
-    let randomNumber = getRandomNumber(min, max);
-    console.log("Question: " + randomNumber);
-    console.log('Answer "yes" if the number is even, otherwise answer "no". ');
+console.log(checkAnswer(usersAnswer, correctAnswer))
 
-    let usersAnswer = readlineSync.question("Your answer: ");
-    let correctAnswer = (randomNumber % 2 === 0) ? "yes" : "no";
-
-    if (usersAnswer === correctAnswer) {
-        console.log("Correct!");
-        ++counter
-    } else {
-        console.log(`'${usersAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
-        console.log("Let's try again,", userName + "!")
-        break
-    }
-}
-
-console.log("Congratulations", userName + "!");

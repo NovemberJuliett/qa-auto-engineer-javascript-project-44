@@ -14,8 +14,6 @@ function getRandomOperator(elements) {
 }
 
 let operatorsList = ["+", "-", "*"];
-let counter = 0;
-
 let firstNumber = getRandomNumber(min, max);
 let secondNumber = getRandomNumber(min, max);
 let randomOperator = getRandomOperator(operatorsList);
@@ -34,7 +32,7 @@ switch (randomOperator) {
         correctAnswer = firstNumber * secondNumber;
         break;
 }
-console.log(correctAnswer)
+
 let usersAnswer = Number(readlineSync.question("Your answer: "));
 if (usersAnswer === correctAnswer){
     console.log("Correct!");

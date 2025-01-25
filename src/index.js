@@ -1,22 +1,22 @@
 import greetUser from '../src/cli.js';
-import readlineSync from "readline-sync";
 
 const userName = greetUser()
-let usersAnswer = readlineSync.question("Your answer: ");
 
+export function getRandomNumber(min=0, max=100) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
-function checkAnswer(usersAnswer, correctAnswer) {
+export function checkAnswer(usersAnswer, correctAnswer) {
     let counter = 0;
     while (counter < 3) {
-
-        if (usersAnswer === correctAnswer) {
+        if (usersAnswer !== correctAnswer){
+            return `${usersAnswer} is wrong answer ;(. Correct answer was ${correctAnswer}.
+            Let's try again, ${userName} !`
+        }
+        else {
+            counter++
             console.log("Correct!");
-            ++counter
-        } else {
-            console.log(`'${usersAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
-            console.log("Let's try again,", userName + "!")
-            break
         }
     }
-    console.log("Congratulations", userName + "!");
+    return (`Congratulations,${userName}!`);
 }
