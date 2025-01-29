@@ -1,12 +1,11 @@
 import readlineSync from 'readline-sync';
 import { getRandomNumber, checkAnswer } from "../src/index.js";
 
+let number = getRandomNumber()
 console.log('Answer "yes" if the number is even, otherwise answer "no". ');
-console.log("Question: " + getRandomNumber());
+console.log("Question: " + number);
 
+let isEven = (number % 2 === 0) ? "yes" : "no";
 
-let usersAnswer = readlineSync.question("Your answer: ");
-let correctAnswer = (getRandomNumber % 2 === 0) ? "yes" : "no";
-
-console.log(checkAnswer(usersAnswer, correctAnswer))
+checkAnswer(isEven)
 
