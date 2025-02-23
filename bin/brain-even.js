@@ -1,17 +1,12 @@
 import readlineSync from 'readline-sync';
-import {getRandomNumber, checkAnswer} from "../src/index.js";
+import {checkAnswer, gameRounds} from "../src/index.js";
 
-let number = getRandomNumber()
 console.log('Answer "yes" if the number is even, otherwise answer "no". ');
 
-while (true) {
-    console.log("Question: " + number);
-    let isEven = (number % 2 === 0) ? "yes" : "no";
-    if (checkAnswer(isEven)) {
-        number = getRandomNumber();
-    } else {
-        break;
-    }
+export function getRandomNumber(min=0, max=100){
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+let isEven = (getRandomNumber() % 2 === 0) ? "yes" : "no";
 
+gameRounds(getRandomNumber(), isEven)
