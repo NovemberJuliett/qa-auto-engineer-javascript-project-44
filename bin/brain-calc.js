@@ -33,10 +33,10 @@ switch (randomOperator) {
         break;
 }
 
-let usersAnswer = Number(readlineSync.question("Your answer: "));
-if (usersAnswer === correctAnswer){
-    console.log("Correct!");
-}
-else {
-    console.log("Bad guy")
-}
+// let usersAnswer = Number(readlineSync.question("Your answer: "));
+// if (usersAnswer === correctAnswer){
+//     console.log("Correct!");
+// }
+// else {
+//     console.log("Bad guy")
+// }
