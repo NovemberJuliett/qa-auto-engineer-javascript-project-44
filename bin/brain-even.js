@@ -10,7 +10,8 @@ export function isEven() {
     let number = generateRandomNumber();
     return {
         gameQuestion: number,
-        rightAnswer: number % 2 === 0 ? "yes" : "no"
+        rightAnswer: number % 2 === 0 ? "yes" : "no",
+        answerType:"string"
     };
 }
 
