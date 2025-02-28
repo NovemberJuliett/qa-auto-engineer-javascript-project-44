@@ -9,8 +9,8 @@ export function generateRandomNumber(min=0, max=100){
 export function isEven() {
     let number = generateRandomNumber();
     return {
-        number: number,
-        result: number % 2 === 0 ? "yes" : "no"
+        gameQuestion: number,
+        rightAnswer: number % 2 === 0 ? "yes" : "no"
     };
 }
 
